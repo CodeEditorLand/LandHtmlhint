@@ -1,22 +1,8 @@
 {
   "name": "test-with-project-htmlhint",
   "version": "0.0.1",
+  "private": "false",
   "description": "test project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepublishOnly": "TypeScriptESBuild Source/**/*.ts"
-  },
-  "author": {
-    "name": "Nikola Hristov",
-    "email": "nikola@nikolahristov.tech",
-    "url": "https://nikolahristov.tech"
-  },
-  "license": "MIT",
-  "devDependencies": {
-    "htmlhint": "1.1.4",
-    "typescript-esbuild": "0.3.1"
-  },
   "homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
   "bugs": {
     "url": "https://github.com/CodeEditorLand/CodeEditorLand/issues"
@@ -25,8 +11,23 @@
     "type": "git",
     "url": "git+https://github.com/CodeEditorLand/CodeEditorLand.git"
   },
+  "license": "MIT",
+  "author": {
+    "name": "Nikola Hristov",
+    "email": "nikola@nikolahristov.tech",
+    "url": "https://nikolahristov.tech"
+  },
+  "publisher": "playform",
   "type": "module",
-  "private": "false",
+  "main": "index.js",
+  "scripts": {
+    "prepublishOnly": "TypeScriptESBuild Source/**/*.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "htmlhint": "1.1.4",
+    "typescript-esbuild": "0.3.1"
+  },
   "publishConfig": {
     "access": "public"
   }

@@ -1,35 +1,38 @@
 {
   "name": "HTMLHint",
   "displayName": "HTMLHint",
-  "description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
-  "icon": "HTMLHint.png",
   "version": "0.0.1",
-  "publisher": "mkaufman",
-  "galleryBanner": {
-    "color": "#0000FF",
-    "theme": "dark"
-  },
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/CodeEditorLand/CodeEditorLand/issues",
-    "email": "mkaufman@microsoft.com"
-  },
-  "homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/CodeEditorLand/CodeEditorLand.git"
-  },
+  "private": "false",
+  "description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
   "categories": [
     "Programming Languages",
     "Linters"
   ],
-  "engines": {
-    "vscode": "1.16.0"
+  "homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
+  "bugs": {
+    "url": "https://github.com/CodeEditorLand/CodeEditorLand/issues",
+    "email": "mkaufman@microsoft.com"
   },
-  "activationEvents": [
-    "onLanguage:html"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CodeEditorLand/CodeEditorLand.git"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Nikola Hristov",
+    "email": "nikola@nikolahristov.tech",
+    "url": "https://nikolahristov.tech"
+  },
+  "publisher": "playform",
+  "type": "module",
   "main": "./out/extension",
+  "scripts": {
+    "compile": "node ./node_modules/typescript/bin/tsc -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "prepublishOnly": "TypeScriptESBuild Source/**/*.ts",
+    "vscode:prepublish": "node ./node_modules/typescript/bin/tsc -p ./",
+    "watch": "node ./node_modules/typescript/bin/tsc -watch -p ./"
+  },
   "contributes": {
     "configuration": {
       "type": "object",
@@ -56,30 +59,27 @@
       }
     }
   },
-  "scripts": {
-    "vscode:prepublish": "node ./node_modules/typescript/bin/tsc -p ./",
-    "compile": "node ./node_modules/typescript/bin/tsc -p ./",
-    "watch": "node ./node_modules/typescript/bin/tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install",
-    "prepublishOnly": "TypeScriptESBuild Source/**/*.ts"
-  },
-  "devDependencies": {
-    "typescript": "5.2.2",
-    "vscode": "1.1.5",
-    "@types/node": "20.8.9",
-    "typescript-esbuild": "0.3.1"
-  },
+  "activationEvents": [
+    "onLanguage:html"
+  ],
   "dependencies": {
     "vscode-languageclient": "9.0.1"
   },
-  "type": "module",
-  "private": "false",
+  "devDependencies": {
+    "@types/node": "20.8.9",
+    "typescript": "5.2.2",
+    "typescript-esbuild": "0.3.1",
+    "vscode": "1.1.5"
+  },
+  "engines": {
+    "vscode": "1.16.0"
+  },
   "publishConfig": {
     "access": "public"
   },
-  "author": {
-    "name": "Nikola Hristov",
-    "email": "nikola@nikolahristov.tech",
-    "url": "https://nikolahristov.tech"
+  "icon": "HTMLHint.png",
+  "galleryBanner": {
+    "color": "#0000FF",
+    "theme": "dark"
   }
 }
