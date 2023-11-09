@@ -1,85 +1,73 @@
 {
-	"name": "HTMLHint",
-	"displayName": "HTMLHint",
-	"version": "0.0.1",
-	"private": "false",
-	"description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
-	"categories": [
-		"Programming Languages",
-		"Linters"
-	],
-	"homepage": "https://github.com/CodeEditorLand/CodeEditorLand#readme",
-	"bugs": {
-		"url": "https://github.com/CodeEditorLand/CodeEditorLand/issues",
-		"email": "mkaufman@microsoft.com"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/CodeEditorLand/CodeEditorLand.git"
-	},
-	"license": "MIT",
-	"author": {
-		"name": "Nikola Hristov",
-		"email": "nikola@nikolahristov.tech",
-		"url": "https://nikolahristov.tech"
-	},
-	"publisher": "playform",
-	"type": "module",
-	"main": "./out/extension",
-	"scripts": {
-		"compile": "node ./node_modules/typescript/bin/tsc -p ./",
-		"postinstall": "node ./node_modules/vscode/bin/install",
-		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
-		"vscode:prepublish": "node ./node_modules/typescript/bin/tsc -p ./",
-		"watch": "node ./node_modules/typescript/bin/tsc -watch -p ./"
-	},
-	"contributes": {
-		"configuration": {
-			"type": "object",
-			"title": "HTML-Hint configuration",
-			"properties": {
-				"htmlhint.enable": {
-					"type": "boolean",
-					"default": true,
-					"description": "Control whether htmlhint is enabled for HTML files or not."
-				},
-				"htmlhint.documentSelector": {
-					"type": "array",
-					"default": [
-						"html",
-						"htm"
-					],
-					"description": "The associated document types to be linted."
-				},
-				"htmlhint.options": {
-					"type": "object",
-					"default": {},
-					"description": "The htmlhint options object to provide args to the htmlhint command."
-				}
-			}
-		}
-	},
-	"activationEvents": [
-		"onLanguage:html"
-	],
-	"dependencies": {
-		"vscode-languageclient": "9.0.1"
-	},
-	"devDependencies": {
-		"@types/node": "20.8.9",
-		"typescript": "5.2.2",
-		"typescript-esbuild": "0.3.1",
-		"vscode": "1.1.5"
-	},
-	"engines": {
-		"vscode": "1.16.0"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"icon": "HTMLHint.png",
-	"galleryBanner": {
-		"color": "#0000FF",
-		"theme": "dark"
-	}
+  "name": "HTMLHint",
+  "displayName": "HTMLHint",
+  "description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
+  "icon": "HTMLHint.png",
+  "version": "0.10.0",
+  "publisher": "mkaufman",
+  "galleryBanner": {
+    "color": "#0000FF",
+    "theme": "dark"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/Microsoft/vscode-htmlhint/issues",
+    "email": "mkaufman@microsoft.com"
+  },
+  "homepage": "https://github.com/Microsoft/vscode-htmlhint/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Microsoft/vscode-htmlhint.git"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "engines": {
+    "vscode": "^1.16.0"
+  },
+  "activationEvents": [
+    "onLanguage:html"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "HTML-Hint configuration",
+      "properties": {
+        "htmlhint.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Control whether htmlhint is enabled for HTML files or not."
+        },
+        "htmlhint.documentSelector": {
+          "type": "array",
+          "default": [
+            "html",
+            "htm"
+          ],
+          "description": "The associated document types to be linted."
+        },
+        "htmlhint.options": {
+          "type": "object",
+          "default": {},
+          "description": "The htmlhint options object to provide args to the htmlhint command."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "node ./node_modules/typescript/bin/tsc -p ./",
+    "compile": "node ./node_modules/typescript/bin/tsc -p ./",
+    "watch": "node ./node_modules/typescript/bin/tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "typescript": "^2.5.2",
+    "vscode": "^1.1.5",
+    "@types/node": "^6.0.41"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^3.4.0"
+  }
 }
