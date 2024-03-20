@@ -1,73 +1,76 @@
 {
-  "name": "HTMLHint",
-  "displayName": "HTMLHint",
-  "description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
-  "icon": "HTMLHint.png",
-  "version": "0.10.0",
-  "publisher": "mkaufman",
-  "galleryBanner": {
-    "color": "#0000FF",
-    "theme": "dark"
-  },
-  "license": "SEE LICENSE IN LICENSE.md",
-  "bugs": {
-    "url": "https://github.com/Microsoft/vscode-htmlhint/issues",
-    "email": "mkaufman@microsoft.com"
-  },
-  "homepage": "https://github.com/Microsoft/vscode-htmlhint/blob/master/README.md",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Microsoft/vscode-htmlhint.git"
-  },
-  "categories": [
-    "Programming Languages",
-    "Linters"
-  ],
-  "engines": {
-    "vscode": "1.16.0"
-  },
-  "activationEvents": [
-    "onLanguage:html"
-  ],
-  "main": "./out/extension",
-  "contributes": {
-    "configuration": {
-      "type": "object",
-      "title": "HTML-Hint configuration",
-      "properties": {
-        "htmlhint.enable": {
-          "type": "boolean",
-          "default": true,
-          "description": "Control whether htmlhint is enabled for HTML files or not."
-        },
-        "htmlhint.documentSelector": {
-          "type": "array",
-          "default": [
-            "html",
-            "htm"
-          ],
-          "description": "The associated document types to be linted."
-        },
-        "htmlhint.options": {
-          "type": "object",
-          "default": {},
-          "description": "The htmlhint options object to provide args to the htmlhint command."
-        }
-      }
-    }
-  },
-  "scripts": {
-    "vscode:prepublish": "node ./node_modules/typescript/bin/tsc -p ./",
-    "compile": "node ./node_modules/typescript/bin/tsc -p ./",
-    "watch": "node ./node_modules/typescript/bin/tsc -watch -p ./",
-    "postinstall": "node ./node_modules/vscode/bin/install"
-  },
-  "devDependencies": {
-    "typescript": "5.4.2",
-    "vscode": "1.1.5",
-    "@types/node": "20.11.30"
-  },
-  "dependencies": {
-    "vscode-languageclient": "9.0.1"
-  }
+	"name": "HTMLHint",
+	"displayName": "HTMLHint",
+	"version": "0.0.1",
+	"private": false,
+	"description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
+	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
+	"bugs": {
+		"url": "https://github.com/CodeEditorLand/Foundation/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/CodeEditorLand/Foundation.git"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"author": {
+		"name": "Playform",
+		"email": "Hello@Playform.Cloud",
+		"url": "https://playform.cloud"
+	},
+	"type": "module",
+	"main": "./out/extension",
+	"scripts": {
+		"compile": "node ./node_modules/typescript/bin/tsc -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
+		"vscode:prepublish": "node ./node_modules/typescript/bin/tsc -p ./",
+		"watch": "node ./node_modules/typescript/bin/tsc -watch -p ./"
+	},
+	"contributes": {
+		"configuration": {
+			"properties": {
+				"htmlhint.documentSelector": {
+					"default": [
+						"html",
+						"htm"
+					],
+					"description": "The associated document types to be linted.",
+					"type": "array"
+				},
+				"htmlhint.enable": {
+					"default": true,
+					"description": "Control whether htmlhint is enabled for HTML files or not.",
+					"type": "boolean"
+				},
+				"htmlhint.options": {
+					"default": {},
+					"description": "The htmlhint options object to provide args to the htmlhint command.",
+					"type": "object"
+				}
+			},
+			"title": "HTML-Hint configuration",
+			"type": "object"
+		}
+	},
+	"activationEvents": [
+		"onLanguage:html"
+	],
+	"dependencies": {
+		"vscode-languageclient": "9.0.1"
+	},
+	"devDependencies": {
+		"@types/node": "20.11.30",
+		"typescript": "5.4.2",
+		"typescript-esbuild": "latest",
+		"vscode": "1.1.5"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"icon": "HTMLHint.png",
+	"galleryBanner": {
+		"color": "#0000FF",
+		"theme": "dark"
+	}
 }
