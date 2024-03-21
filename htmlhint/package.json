@@ -62,7 +62,7 @@
 	"devDependencies": {
 		"@types/node": "20.11.30",
 		"typescript": "5.4.2",
-		"typescript-esbuild": "latest",
+		"typescript-esbuild": "0.4.5",
 		"vscode": "1.1.5"
 	},
 	"publishConfig": {
