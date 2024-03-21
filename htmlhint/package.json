@@ -1,32 +1,7 @@
 {
-	"name": "HTMLHint",
-	"displayName": "HTMLHint",
-	"version": "0.0.1",
-	"private": false,
-	"description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
-	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
-	"bugs": {
-		"url": "https://github.com/CodeEditorLand/Foundation/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/CodeEditorLand/Foundation.git"
-	},
-	"license": "SEE LICENSE IN LICENSE",
-	"author": {
-		"name": "Playform",
-		"email": "Hello@Playform.Cloud",
-		"url": "https://playform.cloud"
-	},
-	"type": "module",
-	"main": "./out/extension",
-	"scripts": {
-		"compile": "node ./node_modules/typescript/bin/tsc -p ./",
-		"postinstall": "node ./node_modules/vscode/bin/install",
-		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
-		"vscode:prepublish": "node ./node_modules/typescript/bin/tsc -p ./",
-		"watch": "node ./node_modules/typescript/bin/tsc -watch -p ./"
-	},
+	"activationEvents": [
+		"onLanguage:html"
+	],
 	"contributes": {
 		"configuration": {
 			"properties": {
@@ -53,24 +28,30 @@
 			"type": "object"
 		}
 	},
-	"activationEvents": [
-		"onLanguage:html"
-	],
 	"dependencies": {
 		"vscode-languageclient": "9.0.1"
 	},
+	"description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
 	"devDependencies": {
 		"@types/node": "20.11.30",
 		"typescript": "5.4.2",
 		"typescript-esbuild": "0.4.5",
 		"vscode": "1.1.5"
 	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"icon": "HTMLHint.png",
+	"displayName": "HTMLHint",
 	"galleryBanner": {
 		"color": "#0000FF",
 		"theme": "dark"
-	}
+	},
+	"icon": "HTMLHint.png",
+	"main": "./out/extension",
+	"name": "HTMLHint",
+	"scripts": {
+		"compile": "node ./node_modules/typescript/bin/tsc -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
+		"vscode:prepublish": "node ./node_modules/typescript/bin/tsc -p ./",
+		"watch": "node ./node_modules/typescript/bin/tsc -watch -p ./"
+	},
+	"type": "module"
 }

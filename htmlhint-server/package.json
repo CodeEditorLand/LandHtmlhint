@@ -1,40 +1,21 @@
 {
-	"name": "htmlhint-server",
-	"version": "0.0.1",
-	"private": false,
-	"description": "HtmlHint Linter Server",
-	"homepage": "https://github.com/CodeEditorLand/Foundation#readme",
-	"bugs": {
-		"url": "https://github.com/CodeEditorLand/Foundation/issues"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/CodeEditorLand/Foundation.git"
-	},
-	"license": "SEE LICENSE IN LICENSE",
-	"author": {
-		"name": "Playform",
-		"email": "Hello@Playform.Cloud",
-		"url": "https://playform.cloud"
-	},
-	"type": "module",
-	"scripts": {
-		"compile": "installServerIntoExtension ../htmlhint ./package.json ./src/tsconfig.json && node node_modules/typescript/bin/tsc -p ./src",
-		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
-		"watch": "installServerIntoExtension ../htmlhint ./package.json ./src/tsconfig.json && node node_modules/typescript/bin/tsc --watch -p ./src"
-	},
 	"dependencies": {
 		"fs": "0.0.2",
 		"htmlhint": "1.1.4",
 		"strip-json-comments": "5.0.1",
 		"vscode-languageserver": "9.0.1"
 	},
+	"description": "HtmlHint Linter Server",
 	"devDependencies": {
 		"@types/node": "20.11.30",
 		"typescript": "5.4.2",
 		"typescript-esbuild": "0.4.5"
 	},
-	"publishConfig": {
-		"access": "public"
-	}
+	"name": "htmlhint-server",
+	"scripts": {
+		"compile": "installServerIntoExtension ../htmlhint ./package.json ./src/tsconfig.json && node node_modules/typescript/bin/tsc -p ./src",
+		"prepublishOnly": "TypeScriptESBuild 'Source/**/*.ts'",
+		"watch": "installServerIntoExtension ../htmlhint ./package.json ./src/tsconfig.json && node node_modules/typescript/bin/tsc --watch -p ./src"
+	},
+	"type": "module"
 }
