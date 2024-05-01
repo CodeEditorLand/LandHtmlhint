@@ -1,14 +1,32 @@
 {
-	"activationEvents": [
-		"onLanguage:html"
+	"name": "HTMLHint",
+	"displayName": "HTMLHint",
+	"version": "0.0.1",
+	"private": false,
+	"description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
+	"keywords": [
+		"land"
 	],
-	"author": {
-		"email": "Land@PlayForm.Cloud",
-		"name": "🌆 — Land —",
-		"url": "HTTPS://Land.PlayForm.Cloud"
-	},
+	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/LandHTMLHint#readme",
 	"bugs": {
 		"url": "HTTPS://GitHub.Com/CodeEditorLand/LandHTMLHint/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+HTTPS://github.com/CodeEditorLand/LandHTMLHint.git"
+	},
+	"license": "SEE LICENSE IN LICENSE",
+	"author": {
+		"name": "🌆 — Land —",
+		"email": "Land@PlayForm.Cloud",
+		"url": "HTTPS://Land.PlayForm.Cloud"
+	},
+	"type": "module",
+	"main": "./out/extension",
+	"scripts": {
+		"Document": "Document 'Source/**/*.ts'",
+		"compile": "node ./node_modules/typescript/bin/tsc -p ./",
+		"prepublishOnly": "Build 'Source/**/*.ts'"
 	},
 	"contributes": {
 		"configuration": {
@@ -36,39 +54,21 @@
 			"type": "object"
 		}
 	},
+	"activationEvents": [
+		"onLanguage:html"
+	],
 	"dependencies": {},
-	"description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
 	"devDependencies": {
 		"@playform/build": "0.0.7",
 		"@playform/document": "0.0.6",
 		"@types/node": "20.12.7"
 	},
-	"displayName": "HTMLHint",
-	"galleryBanner": {
-		"color": "#0000FF",
-		"theme": "dark"
-	},
-	"homepage": "HTTPS://GitHub.Com/CodeEditorLand/LandHTMLHint#readme",
-	"icon": "HTMLHint.png",
-	"keywords": [
-		"land"
-	],
-	"license": "SEE LICENSE IN LICENSE",
-	"main": "./out/extension",
-	"name": "HTMLHint",
-	"private": false,
 	"publishConfig": {
 		"access": "public"
 	},
-	"repository": {
-		"type": "git",
-		"url": "git+HTTPS://github.com/CodeEditorLand/LandHTMLHint.git"
-	},
-	"scripts": {
-		"Document": "Document 'Source/**/*.ts'",
-		"compile": "node ./node_modules/typescript/bin/tsc -p ./",
-		"prepublishOnly": "Build 'Source/**/*.ts'"
-	},
-	"type": "module",
-	"version": "0.0.1"
+	"icon": "HTMLHint.png",
+	"galleryBanner": {
+		"color": "#0000FF",
+		"theme": "dark"
+	}
 }
