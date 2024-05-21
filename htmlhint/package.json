@@ -37,7 +37,7 @@
 	],
 	"dependencies": {},
 	"devDependencies": {
-		"@types/node": "6.0.41"
+		"@types/node": "20.12.12"
 	},
 	"icon": "HTMLHint.png",
 	"galleryBanner": {
