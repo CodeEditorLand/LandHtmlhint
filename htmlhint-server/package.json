@@ -6,10 +6,10 @@
 	},
 	"dependencies": {
 		"fs": "0.0.2",
-		"htmlhint": "^1.1.4",
-		"strip-json-comments": "^5.0.1"
+		"htmlhint": "1.1.4",
+		"strip-json-comments": "5.0.1"
 	},
 	"devDependencies": {
-		"@types/node": "^20.14.8"
+		"@types/node": "20.14.8"
 	}
 }
