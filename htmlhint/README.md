@@ -16,7 +16,7 @@ To install a version to the local project folder, run
 `npm install --save-dev htmlhint`. To install a global version on the current
 machine, run `npm install --global htmlhint`.
 
-## Usage
+## 🛠️ Usage
 
 The HTMLHint extension will run HTMLHint on your open HTML files and report the
 number of errors on the Status Bar with details in the Problems panel
