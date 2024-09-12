@@ -1,6 +1,0 @@
-
-<!--<!DOCTYPE html>-->
-<ul>  
-	<li>
-		<a href='http://www.github.com'>github</a>
-	</ul>
