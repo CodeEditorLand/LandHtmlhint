@@ -1,12 +1,12 @@
 {
 	"dependencies": {
 		"fs": "0.0.2",
-		"htmlhint": "^0.11.0",
-		"strip-json-comments": "^2.0.0"
+		"htmlhint": "1.1.4",
+		"strip-json-comments": "5.0.1"
 	},
 	"description": "HtmlHint Linter Server",
 	"devDependencies": {
-		"@types/node": "^6.0.41"
+		"@types/node": "22.6.0"
 	},
 	"name": "htmlhint-server",
 	"scripts": {
