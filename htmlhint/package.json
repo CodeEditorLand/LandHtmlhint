@@ -1,11 +1,7 @@
 {
-	"name": "HTMLHint",
-	"displayName": "HTMLHint",
-	"description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
-	"main": "./out/extension",
-	"scripts": {
-		"compile": "node ./node_modules/typescript/bin/tsc -p ./"
-	},
+	"activationEvents": [
+		"onLanguage:html"
+	],
 	"contributes": {
 		"configuration": {
 			"properties": {
@@ -32,16 +28,20 @@
 			"type": "object"
 		}
 	},
-	"activationEvents": [
-		"onLanguage:html"
-	],
 	"dependencies": {},
+	"description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
 	"devDependencies": {
 		"@types/node": "22.7.3"
 	},
-	"icon": "HTMLHint.png",
+	"displayName": "HTMLHint",
 	"galleryBanner": {
 		"color": "#0000FF",
 		"theme": "dark"
+	},
+	"icon": "HTMLHint.png",
+	"main": "./out/extension",
+	"name": "HTMLHint",
+	"scripts": {
+		"compile": "node ./node_modules/typescript/bin/tsc -p ./"
 	}
 }
