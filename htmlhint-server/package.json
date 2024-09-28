@@ -1,15 +1,15 @@
 {
+	"name": "htmlhint-server",
+	"description": "HtmlHint Linter Server",
+	"scripts": {
+		"compile": "installServerIntoExtension ../htmlhint ./package.json ./src/tsconfig.json && node node_modules/typescript/bin/tsc -p ./src"
+	},
 	"dependencies": {
 		"fs": "0.0.2",
 		"htmlhint": "1.1.4",
 		"strip-json-comments": "5.0.1"
 	},
-	"description": "HtmlHint Linter Server",
 	"devDependencies": {
 		"@types/node": "22.7.3"
-	},
-	"name": "htmlhint-server",
-	"scripts": {
-		"compile": "installServerIntoExtension ../htmlhint ./package.json ./src/tsconfig.json && node node_modules/typescript/bin/tsc -p ./src"
 	}
 }
