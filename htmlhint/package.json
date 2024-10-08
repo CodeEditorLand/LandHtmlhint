@@ -1,47 +1,73 @@
 {
-	"activationEvents": [
-		"onLanguage:html"
-	],
-	"contributes": {
-		"configuration": {
-			"properties": {
-				"htmlhint.documentSelector": {
-					"default": [
-						"html",
-						"htm"
-					],
-					"description": "The associated document types to be linted.",
-					"type": "array"
-				},
-				"htmlhint.enable": {
-					"default": true,
-					"description": "Control whether htmlhint is enabled for HTML files or not.",
-					"type": "boolean"
-				},
-				"htmlhint.options": {
-					"default": {},
-					"description": "The htmlhint options object to provide args to the htmlhint command.",
-					"type": "object"
-				}
-			},
-			"title": "HTML-Hint configuration",
-			"type": "object"
-		}
-	},
-	"dependencies": {},
-	"description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
-	"devDependencies": {
-		"@types/node": "22.7.5"
-	},
-	"displayName": "HTMLHint",
-	"galleryBanner": {
-		"color": "#0000FF",
-		"theme": "dark"
-	},
-	"icon": "HTMLHint.png",
-	"main": "./out/extension",
-	"name": "HTMLHint",
-	"scripts": {
-		"compile": "node ./node_modules/typescript/bin/tsc -p ./"
-	}
+  "name": "HTMLHint",
+  "displayName": "HTMLHint",
+  "description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
+  "icon": "HTMLHint.png",
+  "version": "0.10.0",
+  "publisher": "mkaufman",
+  "galleryBanner": {
+    "color": "#0000FF",
+    "theme": "dark"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "bugs": {
+    "url": "https://github.com/Microsoft/vscode-htmlhint/issues",
+    "email": "mkaufman@microsoft.com"
+  },
+  "homepage": "https://github.com/Microsoft/vscode-htmlhint/blob/master/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Microsoft/vscode-htmlhint.git"
+  },
+  "categories": [
+    "Programming Languages",
+    "Linters"
+  ],
+  "engines": {
+    "vscode": "^1.16.0"
+  },
+  "activationEvents": [
+    "onLanguage:html"
+  ],
+  "main": "./out/extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "HTML-Hint configuration",
+      "properties": {
+        "htmlhint.enable": {
+          "type": "boolean",
+          "default": true,
+          "description": "Control whether htmlhint is enabled for HTML files or not."
+        },
+        "htmlhint.documentSelector": {
+          "type": "array",
+          "default": [
+            "html",
+            "htm"
+          ],
+          "description": "The associated document types to be linted."
+        },
+        "htmlhint.options": {
+          "type": "object",
+          "default": {},
+          "description": "The htmlhint options object to provide args to the htmlhint command."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "node ./node_modules/typescript/bin/tsc -p ./",
+    "compile": "node ./node_modules/typescript/bin/tsc -p ./",
+    "watch": "node ./node_modules/typescript/bin/tsc -watch -p ./",
+    "postinstall": "node ./node_modules/vscode/bin/install"
+  },
+  "devDependencies": {
+    "typescript": "^2.5.2",
+    "vscode": "^1.1.5",
+    "@types/node": "^6.0.41"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^3.4.0"
+  }
 }
