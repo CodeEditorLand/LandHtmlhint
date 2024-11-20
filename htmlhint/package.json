@@ -31,7 +31,7 @@
 	"dependencies": {},
 	"description": "VS Code integration for HTMLHint - A Static Code Analysis Tool for HTML",
 	"devDependencies": {
-		"@types/node": "22.9.0"
+		"@types/node": "22.9.1"
 	},
 	"displayName": "HTMLHint",
 	"galleryBanner": {

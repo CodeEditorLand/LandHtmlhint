@@ -6,7 +6,7 @@
 	},
 	"description": "HtmlHint Linter Server",
 	"devDependencies": {
-		"@types/node": "22.9.0"
+		"@types/node": "22.9.1"
 	},
 	"name": "htmlhint-server",
 	"scripts": {
