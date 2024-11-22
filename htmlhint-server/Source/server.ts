@@ -10,6 +10,7 @@ import * as htmlhint from "htmlhint";
 import * as server from "vscode-languageserver";
 
 import fs = require("fs");
+
 let stripJsonComments: any = require("strip-json-comments");
 
 interface Settings {
@@ -22,6 +23,7 @@ interface Settings {
 }
 
 let settings: Settings = null;
+
 let linter: any = null;
 
 /**
@@ -36,8 +38,11 @@ let htmlhintrcOptions: any = {};
  */
 function getRange(error: htmlhint.Error, lines: string[]): any {
 	let line = lines[error.line - 1];
+
 	var isWhitespace = false;
+
 	var curr = error.col;
+
 	while (curr < line.length && !isWhitespace) {
 		var char = line[curr];
 		isWhitespace =
@@ -86,6 +91,7 @@ function makeDiagnostic(
  */
 function getConfiguration(filePath: string): any {
 	var options: any;
+
 	if (settings.htmlhint) {
 		if (
 			settings.htmlhint.configFile &&
@@ -105,6 +111,7 @@ function getConfiguration(filePath: string): any {
 				)
 					? ` (resolves to '${path.resolve(settings.htmlhint.configFile)}')`
 					: "";
+
 				throw new Error(
 					`The configuration settings for HTMLHint are invalid. The file '${settings.htmlhint.configFile}'${configFileHint} specified in 'htmlhint.configFile' could not be found.`,
 				);
@@ -122,6 +129,7 @@ function getConfiguration(filePath: string): any {
 	}
 
 	options = options || {};
+
 	return options;
 }
 
@@ -150,6 +158,7 @@ function findConfigForHtmlFile(base: string) {
 			// defined, non-null value means we found a config file at the given path, so use it.
 			if (htmlhintrcOptions[tmpConfigFile]) {
 				options = htmlhintrcOptions[tmpConfigFile];
+
 				break;
 			}
 
@@ -164,8 +173,10 @@ function findConfigForHtmlFile(base: string) {
  */
 function loadConfigurationFile(configFile): any {
 	var ruleset: any = null;
+
 	if (fs.existsSync(configFile)) {
 		var config = fs.readFileSync(configFile, "utf8");
+
 		try {
 			ruleset = JSON.parse(stripJsonComments(config));
 		} catch (e) {}
@@ -175,6 +186,7 @@ function loadConfigurationFile(configFile): any {
 
 function getErrorMessage(err: any, document: server.TextDocument): string {
 	let result: string = null;
+
 	if (typeof err.message === "string" || err.message instanceof String) {
 		result = <string>err.message;
 	} else {
@@ -188,6 +200,7 @@ function validateAllTextDocuments(
 	documents: server.TextDocument[],
 ): void {
 	let tracker = new server.ErrorMessageTracker();
+
 	documents.forEach((document) => {
 		try {
 			validateTextDocument(connection, document);
@@ -210,6 +223,7 @@ function validateTextDocument(
 }
 
 let connection: server.IConnection = server.createConnection();
+
 let documents: server.TextDocuments = new server.TextDocuments();
 documents.listen(connection);
 
@@ -220,9 +234,11 @@ function trace(message: string, verbose?: string): void {
 connection.onInitialize(
 	(params: server.InitializeParams, token: server.CancellationToken) => {
 		let rootFolder = params.rootPath;
+
 		let initOptions: {
 			nodePath: string;
 		} = params.initializationOptions;
+
 		let nodePath = initOptions
 			? initOptions.nodePath
 				? initOptions.nodePath
@@ -246,15 +262,18 @@ connection.onInitialize(
 				let result: server.InitializeResult = {
 					capabilities: { textDocumentSync: documents.syncKind },
 				};
+
 				return result;
 			},
 			(error) => {
 				// didn't find htmlhint in project or global, so use embedded version.
 				linter = htmlhint.default || htmlhint.HTMLHint || htmlhint;
 				//connection.window.showInformationMessage(`onInitialize() using embedded htmlhint(version ! ${linter.version})`);
+
 				let result: server.InitializeResult = {
 					capabilities: { textDocumentSync: documents.syncKind },
 				};
+
 				return result;
 			},
 		);
@@ -269,8 +288,11 @@ function doValidate(
 ): void {
 	try {
 		let uri = document.uri;
+
 		let fsPath = server.Files.uriToFilePath(uri);
+
 		let contents = document.getText();
+
 		let lines = contents.split("\n");
 
 		let config = getConfiguration(fsPath);
@@ -278,6 +300,7 @@ function doValidate(
 		let errors: htmlhint.Error[] = linter.verify(contents, config);
 
 		let diagnostics: server.Diagnostic[] = [];
+
 		if (errors.length > 0) {
 			errors.forEach((each) => {
 				diagnostics.push(makeDiagnostic(each, lines));
@@ -286,8 +309,10 @@ function doValidate(
 		connection.sendDiagnostics({ uri, diagnostics });
 	} catch (err) {
 		let message: string = null;
+
 		if (typeof err.message === "string" || err.message instanceof String) {
 			message = <string>err.message;
+
 			throw new Error(message);
 		}
 		throw err;

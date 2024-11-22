@@ -12,10 +12,12 @@ export function activate(context: ExtensionContext) {
 	// We need to go one level up since an extension compile the js code into
 	// the output folder.
 	let serverModulePath = path.join(__dirname, "..", "server", "server.js");
+
 	let debugOptions = {
 		execArgv: ["--nolazy", "--inspect=6010"],
 		cwd: process.cwd(),
 	};
+
 	let serverOptions: ServerOptions = {
 		run: { module: serverModulePath, transport: TransportKind.ipc },
 		debug: {
@@ -27,7 +29,9 @@ export function activate(context: ExtensionContext) {
 
 	// Get file types to lint from user settings
 	let config = workspace.getConfiguration("htmlhint");
+
 	let languages: string[] = config.get("documentSelector");
+
 	let documentSelector = languages.map((language) => ({
 		language,
 		scheme: "file",
@@ -44,6 +48,7 @@ export function activate(context: ExtensionContext) {
 	};
 
 	let forceDebug = false;
+
 	let client = new LanguageClient(
 		"HTML-hint",
 		serverOptions,
