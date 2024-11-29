@@ -11,17 +11,25 @@ declare module "htmlhint" {
 
 	export interface Error {
 		type: string;
+
 		message: string;
+
 		raw: string;
+
 		evidence: string;
+
 		line: number;
+
 		col: number;
+
 		rule: Rule;
 	}
 
 	export interface Rule {
 		id: string;
+
 		description: string;
+
 		link: string;
 	}
 }

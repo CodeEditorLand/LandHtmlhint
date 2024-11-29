@@ -16,7 +16,9 @@ let stripJsonComments: any = require("strip-json-comments");
 interface Settings {
 	htmlhint: {
 		configFile: string;
+
 		enable: boolean;
+
 		options: any;
 	};
 	[key: string]: any;
@@ -45,6 +47,7 @@ function getRange(error: htmlhint.Error, lines: string[]): any {
 
 	while (curr < line.length && !isWhitespace) {
 		var char = line[curr];
+
 		isWhitespace =
 			char === " " ||
 			char === "\t" ||
@@ -102,6 +105,7 @@ function getConfiguration(filePath: string): any {
 				`The configuration settings for HTMLHint are invalid. Please specify either 'htmlhint.configFile' or 'htmlhint.options', but not both.`,
 			);
 		}
+
 		if (settings.htmlhint.configFile) {
 			if (fs.existsSync(settings.htmlhint.configFile)) {
 				options = loadConfigurationFile(settings.htmlhint.configFile);
@@ -165,6 +169,7 @@ function findConfigForHtmlFile(base: string) {
 			base = base.substring(0, base.lastIndexOf(path.sep));
 		}
 	}
+
 	return options;
 }
 
@@ -181,6 +186,7 @@ function loadConfigurationFile(configFile): any {
 			ruleset = JSON.parse(stripJsonComments(config));
 		} catch (e) {}
 	}
+
 	return ruleset;
 }
 
@@ -192,6 +198,7 @@ function getErrorMessage(err: any, document: server.TextDocument): string {
 	} else {
 		result = `An unknown error occured while validating file: ${server.Files.uriToFilePath(document.uri)}`;
 	}
+
 	return result;
 }
 
@@ -208,6 +215,7 @@ function validateAllTextDocuments(
 			tracker.add(getErrorMessage(err, document));
 		}
 	});
+
 	tracker.sendErrors(connection);
 }
 
@@ -306,6 +314,7 @@ function doValidate(
 				diagnostics.push(makeDiagnostic(each, lines));
 			});
 		}
+
 		connection.sendDiagnostics({ uri, diagnostics });
 	} catch (err) {
 		let message: string = null;
@@ -315,6 +324,7 @@ function doValidate(
 
 			throw new Error(message);
 		}
+
 		throw err;
 	}
 }
@@ -338,6 +348,7 @@ connection.onDidChangeWatchedFiles((params) => {
 		htmlhintrcOptions[server.Files.uriToFilePath(params.changes[i].uri)] =
 			undefined;
 	}
+
 	validateAllTextDocuments(connection, documents.all());
 });
 

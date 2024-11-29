@@ -55,6 +55,7 @@ export function activate(context: ExtensionContext) {
 		clientOptions,
 		forceDebug,
 	);
+
 	context.subscriptions.push(
 		new SettingMonitor(client, "htmlhint.enable").start(),
 	);
